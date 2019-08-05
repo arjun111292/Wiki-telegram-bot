@@ -7,7 +7,9 @@ from telegram.ext import Updater, CommandHandler, Filters, CallbackQueryHandler
 import keyboards.disambiguation_keyboard as dkb
 import config
 
+# Messages
 FIND_OUT_MORE = '\n\n Find out more at '
+HELP_MESSAGE = 'To wiki: \n\n /wiki [search input] \n\n'
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -16,11 +18,11 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 def start(update, context):
-    update.message.reply_text('Hi!')
+  update.message.reply_text('Hi there! \U0001F60A \n\n' + HELP_MESSAGE)
 
 
 def help(update, context):
-    update.message.reply_text('Help!')
+  update.message.reply_text('Sending help now \U0001F60A \n\n' + HELP_MESSAGE)
 
 
 def callback_handler(update, context):

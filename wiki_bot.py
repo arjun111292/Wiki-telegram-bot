@@ -41,7 +41,7 @@ def callback_handler(update, context):
 
 
 def wiki(update, context):
-  user_input = update.message.text[len("wiki")+1:]
+  user_input = re.match("\/wiki([@_\w]+) (.+)", update.message.text).group(2)
   try:
     page_result = wikipedia.page(user_input)
     summary = page_result.summary

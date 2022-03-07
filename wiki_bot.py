@@ -17,14 +17,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-def start(update, context):
-  update.message.reply_text('Hi there! \U0001F60A \n\n' + HELP_MESSAGE)
-
-
-def help(update, context):
-  update.message.reply_text('Sending help now \U0001F60A \n\n' + HELP_MESSAGE)
-
-
 def callback_handler(update, context):
   query = update.callback_query
   callback_data = query.data
@@ -81,9 +73,7 @@ def main():
 
 
     dp = updater.dispatcher
-
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("help", help))
+    
     dp.add_handler(CommandHandler("wiki", wiki))
     updater.dispatcher.add_handler(CallbackQueryHandler(callback_handler))
 
@@ -96,9 +86,3 @@ def main():
     # updater.start_polling()
 
     updater.idle()
-
-
-if __name__ == '__main__':
-    print ("Starting bot...")
-    main()
-    print ("Bot stopped.")
